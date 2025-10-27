@@ -46,5 +46,6 @@ jobs:
     steps:
       - name: deploy on coolify
         run: |
-          curl ${{secrets.DEPLOY_WEBHOOK}} --header 'Authorization: Bearer ${{secrets.DEPLOY_KEY}}'
+          curl -X POST ${{secrets.DEPLOY_WEBHOOK}} \
+          --header 'Authorization: Bearer ${{secrets.DEPLOY_KEY}}'
           
