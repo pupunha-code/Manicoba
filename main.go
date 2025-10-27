@@ -47,7 +47,7 @@ func main() {
 
 	c := cron.New(cron.WithLocation(loc)) // cria o agendador
 
-	c.AddFunc("0 9 * * *", func() { // manda artigos de frontend
+	c.AddFunc("0 13 * * *", func() { // manda artigos de frontend
 		log.Println("Buscando artigos de Frontend")
 		article, err := articles.FetchArticles("javascript,typescript,react,nextjs,vue,angular,svelte,tailwindcss,vite&top=1")
 		if err != nil {
@@ -57,7 +57,7 @@ func main() {
 		}
 	})
 
-	c.AddFunc("30 12 * * *", func() { // manda artigos de backend
+	c.AddFunc("30 15 * * *", func() { // manda artigos de backend
 		log.Println("Buscando artigos de Bakcend")
 		article, err := articles.FetchArticles("node,python,go,java,rust,springboot,django,fastapi,laravel,graphql,postgres,redis,backend,architecture")
 		if err != nil {
@@ -67,7 +67,7 @@ func main() {
 		}
 	})
 
-	c.AddFunc("0 18 * * *", func() { // manda artigos de devops e cloud
+	c.AddFunc("0 21 * * *", func() { // manda artigos de devops e cloud
 		log.Println("Buscando artigos de Devops e Cloud")
 		article, err := articles.FetchArticles("devops,aws,azure,gcp,docker,kubernetes,terraform,ansible,githubactions,cicd,prometheus,grafana,observability,security,linux")
 		if err != nil {
