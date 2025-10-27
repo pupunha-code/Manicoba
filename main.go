@@ -17,10 +17,10 @@ var (
 	channelID    string
 )
 
-// init() roda antes da função main() para casos de testes locais
-func init() {
+func main() {
+
 	// Carrega as variaveis de ambiente
-	godotenv.Load()
+	godotenv.Load(".env")
 
 	discordToken = os.Getenv("DISCORD_TOKEN")
 	channelID = os.Getenv("DISCORD_CHANNEL_ID")
@@ -32,9 +32,6 @@ func init() {
 	if channelID == "" {
 		log.Fatal("ERRO: DISCORD_CHANNEL_ID não foi definido no ambiente!")
 	}
-}
-
-func main() {
 
 	//cria a sessão
 	session, err := bot.SessionCreator(discordToken)
@@ -46,7 +43,7 @@ func main() {
 
 	c := cron.New() // cria o agendador
 
-	c.AddFunc("0 9* * *", func() { // manda artigos de frontend
+	c.AddFunc("38 9* * *", func() { // manda artigos de frontend
 		log.Println("Buscando artigos de Frontend")
 		article, err := articles.FetchArticles("javascript,typescript,react,nextjs,vue,angular,svelte,tailwindcss,vite&top=1")
 		if err != nil {
