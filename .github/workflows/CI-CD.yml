@@ -47,5 +47,8 @@ jobs:
 
     steps:
       - name: deploy no coolify
-        run: |
-          curl ${{secrets.DEPLOY_WEBHOOK}} --header 'Authorization: Bearer ${{secrets.DEPLOY_KEY}}'
+        uses: fjogeleit/http-request-action@v1
+        with:
+          url: ${{secrets.DEPLOY_WEBHOOK}}
+          method: 'GET'
+          bearerToken: ${{secrets.DEPLOY_KEY}}
