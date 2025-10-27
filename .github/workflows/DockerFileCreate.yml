@@ -1,4 +1,4 @@
-name: DockerFileCreateAndDeploy.yml
+name: CI-CD.yml
 on:
   push:
     tags:
