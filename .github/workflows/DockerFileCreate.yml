@@ -38,13 +38,4 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-  deploy:
-    needs: build
-    environment: manicoba
-    runs-on: ubuntu-latest
-    steps:
-      - name: deploy on coolify
-        run: |
-          curl -X POST ${{secrets.DEPLOY_WEBHOOK}}
           
