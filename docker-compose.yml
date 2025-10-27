@@ -1,7 +1,6 @@
 services:
   manicoba:
     image: kbrum/manicoba:latest
-
     environment:
       - DISCORD_TOKEN=${DISCORD_TOKEN}
       - DISCORD_CHANNEL_ID=${DISCORD_CHANNEL_ID}
