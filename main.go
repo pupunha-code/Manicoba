@@ -43,7 +43,7 @@ func main() {
 
 	c := cron.New() // cria o agendador
 
-	c.AddFunc("43 9 * * *", func() { // manda artigos de frontend
+	c.AddFunc("0 9 * * *", func() { // manda artigos de frontend
 		log.Println("Buscando artigos de Frontend")
 		article, err := articles.FetchArticles("javascript,typescript,react,nextjs,vue,angular,svelte,tailwindcss,vite&top=1")
 		if err != nil {
