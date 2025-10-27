@@ -5,6 +5,7 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/joho/godotenv"
 	"github.com/pupunha-code/Manicoba/articles"
@@ -41,7 +42,10 @@ func main() {
 
 	log.Println("Bot iniciado")
 
-	c := cron.New() // cria o agendador
+	// setando o fuso horario
+	loc, err := time.LoadLocation("America/Belem")
+
+	c := cron.New(cron.WithLocation(loc)) // cria o agendador
 
 	c.AddFunc("0 9 * * *", func() { // manda artigos de frontend
 		log.Println("Buscando artigos de Frontend")
