@@ -55,7 +55,7 @@ func main() {
 
 	c.AddFunc("30 15 * * *", func() { // manda artigos de backend
 		log.Println("Buscando artigos de Bakcend")
-		article, err := articles.FetchArticles("node,python,go,java,rust,springboot,django,fastapi,laravel,graphql,postgres,redis,backend,architecture")
+		article, err := articles.FetchArticles("node,python,go,java,rust,springboot,django,fastapi,laravel,graphql,postgres,redis,backend,architecture&top=1")
 		if err != nil {
 			log.Println("Erro ao buscar artigo: ", err)
 		} else {
@@ -65,7 +65,7 @@ func main() {
 
 	c.AddFunc("0 21 * * *", func() { // manda artigos de devops e cloud
 		log.Println("Buscando artigos de Devops e Cloud")
-		article, err := articles.FetchArticles("devops,aws,azure,gcp,docker,kubernetes,terraform,ansible,githubactions,cicd,prometheus,grafana,observability,security,linux")
+		article, err := articles.FetchArticles("devops,aws,azure,gcp,docker,kubernetes,terraform,ansible,githubactions,cicd,prometheus,grafana,observability,security,linux&top=1")
 		if err != nil {
 			log.Println("Erro ao buscar artigo: ", err)
 		} else {
