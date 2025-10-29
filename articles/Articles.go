@@ -16,10 +16,10 @@ type Article *struct {
 }
 
 // FetchArticles Função base que retorna o artigo que sera enviado
-func FetchArticles(tags string) (Article, error) {
+func FetchArticles(tag string) (Article, error) {
 
 	//Faz a solicitação http
-	resp, err := http.Get("https://dev.to/api/articles?tags=" + tags)
+	resp, err := http.Get("https://dev.to/api/articles?tag=" + tag)
 	if err != nil {
 		return nil, err
 	}
