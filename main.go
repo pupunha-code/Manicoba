@@ -43,9 +43,9 @@ func main() {
 
 	c := cron.New() // cria o agendador
 
-	c.AddFunc("0 13 * * *", func() { // manda artigos de frontend
+	c.AddFunc("0 12 * * *", func() { // manda artigos de frontend
 		log.Println("Buscando artigos de Frontend")
-		article, err := articles.FetchArticles("javascript,typescript,react,nextjs,vue,angular,svelte,tailwindcss,vite&top=1")
+		article, err := articles.FetchArticles("javascript,typescript,react,nextjs,vue,angular,svelte,tailwindcss,vite")
 		if err != nil {
 			log.Println("Erro ao buscar artigo: ", err)
 		} else {

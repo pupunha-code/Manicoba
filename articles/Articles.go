@@ -19,7 +19,7 @@ type Article *struct {
 func FetchArticles(tags string) (Article, error) {
 
 	//Faz a solicitação http
-	resp, err := http.Get("https://dev.to/api/articles?tags=" + tags + "&top=1")
+	resp, err := http.Get("https://dev.to/api/articles?tags=" + tags)
 	if err != nil {
 		return nil, err
 	}
